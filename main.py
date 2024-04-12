@@ -9,6 +9,10 @@ def main():
         option = int(input("Please enter an option: "))
 
         def decode_password(encoded_password):
+            def decoder(encoded_password):
+                decoded = [(int(char) - 3) % 10 for char in encoded_password]
+                return ''.join(map(str, decoded))
+
             pass
 
         if option == 3: # Quit
@@ -16,7 +20,7 @@ def main():
 
         if option == 1: # Encode
             password = input("Please enter your password to encode: ")
-            encoded_password = encode_password(password)
+            encoded_password = encoded_password(password)
             print("Your password has been encoded and stored!")
 
         if option == 2: # Decode
