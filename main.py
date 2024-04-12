@@ -8,12 +8,15 @@ def main():
 
         option = int(input("Please enter an option: "))
 
+        def encode_password(password):
+            password_list = [int(i) for i in str(password)]
+            encoded_password_list = [str(num+3) for num in password_list]
+            encoded_password = ''.join(encoded_password_list)
+            return encoded_password
+        
         def decode_password(encoded_password):
-            def decoder(encoded_password):
-                decoded = [(int(char) - 3) % 10 for char in encoded_password]
-                return ''.join(map(str, decoded))
-
-            pass
+            decoded = [(int(char) - 3) % 10 for char in encoded_password]
+            return ''.join(map(str, decoded))
 
         if option == 3: # Quit
             return # BUHBYE!
